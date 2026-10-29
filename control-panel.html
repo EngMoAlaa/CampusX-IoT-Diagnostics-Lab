@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus X - HVAC & Lab Control Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!--  Sidebar-->
+        <aside class="sidebar">
+            <div class="logo-section">
+                <i data-lucide="radio" class="logo-icon"></i>
+                <div class="logo-text">
+                    <h2>Campus X</h2>
+                    <span>TELEMETRY HUB</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="devices.html" class="nav-item">
+                    <i data-lucide="cpu"></i>
+                    <span>Devices</span>
+                </a>
+                <a href="alerts.html" class="nav-item">
+                    <i data-lucide="bell"></i>
+                    <span>Alerts</span>
+                    <span class="badge">5</span>
+                </a>
+                <a href="control-panel.html" class="nav-item active">
+                    <i data-lucide="sliders"></i>
+                    <span>Control Panel</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i data-lucide="settings"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="system-status-box">
+                    <small>LIVE TELEMETRY</small>
+                    <div class="sys-row"><span>Server</span> <strong class="green-text">● Live</strong></div>
+                    <div class="sys-row"><span>Database</span> <strong class="blue-text">● Active</strong></div>
+                    <div class="sys-row"><span>MQTT Broker</span> <strong class="green-text">● Online</strong></div>
+                </div>
+            </div>
+        </aside>
+
+        <!--  Main Content  -->
+        <main class="main-content">
+            
+            <!-- Top Header-->
+            <header class="top-header">
+                <div class="header-left">
+                    <button id="mobile-menu-btn" class="mobile-toggle-btn"><i data-lucide="menu"></i></button>
+                    <div class="lab-selector-wrapper">
+                        <i data-lucide="flask-conical"></i>
+                        <span class="lab-current-title">Lab 402-B / IoT Edge Grid</span>
+                        <i data-lucide="chevron-down" style="width: 12px; height: 12px; margin-left: 4px;"></i>
+                    </div>
+                </div>
+
+                <div class="header-right-group">
+                    <button class="icon-btn" id="theme-toggle" title="Toggle Theme">
+                        <i data-lucide="moon"></i>
+                    </button>
+                    <button class="icon-btn"><i data-lucide="bell"></i></button>
+
+                    <div class="user-profile">
+                        <div class="user-info">
+                            <strong>Dr. Lamia</strong>
+                            <small>Lab Administrator</small>
+                        </div>
+                        <div class="avatar"><i data-lucide="user"></i></div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Control Panel Page Title Banner -->
+            <div class="page-title-banner">
+                <div>
+                    <div class="title-with-badge">
+                        <i data-lucide="sliders" class="blue-text" style="width: 20px; height: 20px;"></i>
+                        <h1>HVAC & Lab Control Panel</h1>
+                    </div>
+                    <p class="subtitle-text">
+                        Real-time actuation, environmental safety thresholds, and computer vision occupancy dispatch
+                    </p>
+                </div>
+                <div class="banner-actions">
+                    <div class="lab-select-inline">
+                        <small>ZONE:</small>
+                        <select class="settings-select">
+                            <option>Lab 1 - Main Room</option>
+                            <option>Lab 2 - Electronics Wing</option>
+                            <option>Lab 3 - Chemistry Suite</option>
+                            <option>Lab 4 - Cleanroom</option>
+                        </select>
+                    </div>
+                    <span class="status-pill-green">● Mode: Auto Regulated</span>
+                    <span class="latency-tag">📡 Latency: 18ms</span>
+                    <button class="btn-secondary-sm"><i data-lucide="refresh-cw"></i> QoS 1 Synced</button>
+                </div>
+            </div>
+
+            <!-- Top Grid: Temperature & Fan Control & Computer Vision (Occupancy) -->
+            <div class="ctrl-top-grid">
+
+                <!-- Temperature & Fan Control Card -->
+                <div class="ctrl-card">
+                    <div class="card-header-bar">
+                        <div class="header-title-group">
+                            <i data-lucide="thermometer" class="blue-text"></i>
+                            <div>
+                                <h3>Temperature & Fan Control</h3>
+                                <p>Environmental thermal regulation loop</p>
+                            </div>
+                        </div>
+                        <span class="pill-badge-green">● PID Loop Active</span>
+                    </div>
+
+                    <div class="ctrl-body-split">
+                        <div class="temp-display-side">
+                            <small>CURRENT TEMP</small>
+                            <div class="big-val">24.0°C</div>
+                            <span>Target: 22.0°C • Probe: DS18B20-A1</span>
+                        </div>
+
+                        <div class="fan-actuator-side">
+                            <small>Fan Actuator</small>
+                            <span class="pill-badge-green" style="margin-left: auto;">● RUNNING (ON)</span>
+                            <div class="fan-toggle-wrapper">
+                                <button class="fan-power-btn active">
+                                    <i data-lucide="fan" class="spin-icon"></i>
+                                </button>
+                            </div>
+                            <p class="click-hint">Click switch to toggle relay node</p>
+                        </div>
+                    </div>
+
+                    <div class="sub-metrics-3row margin-top-12">
+                        <div>
+                            <small>Speed</small>
+                            <strong>🌀 1,420 RPM</strong>
+                        </div>
+                        <div>
+                            <small>Airflow</small>
+                            <strong>💨 2.4 m/s</strong>
+                        </div>
+                        <div>
+                            <small>Compressor</small>
+                            <strong>🔄 Cycling</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Computer Vision (Occupancy) Card -->
+                <div class="ctrl-card">
+                    <div class="card-header-bar">
+                        <div class="header-title-group">
+                            <i data-lucide="camera" class="blue-text"></i>
+                            <div>
+                                <h3>Computer Vision (Occupancy)</h3>
+                                <p>YOLOv8 Edge AI camera inference • Lab Ceiling Cam 01</p>
+                            </div>
+                        </div>
+                        <span class="pill-badge-blue">● 29.8 FPS Stream</span>
+                    </div>
+
+                    <div class="occupancy-body">
+                        <small>REAL-TIME HEADCOUNT</small>
+                        <div class="occupancy-val-row">
+                            <div class="headcount-num">15 <small>/ 30 Max Persons</small></div>
+                            <div class="capacity-box">
+                                <small>CAPACITY LOAD</small>
+                                <strong>50%</strong>
+                            </div>
+                        </div>
+
+                        <!-- Progress Bar -->
+                        <div class="occupancy-progress-bar">
+                            <div class="progress-fill" style="width: 50%;"></div>
+                        </div>
+                        <div class="progress-labels">
+                            <span>0</span>
+                            <span>10</span>
+                            <span>20</span>
+                            <span>30 (Cap)</span>
+                        </div>
+                    </div>
+
+                    <div class="cv-card-footer">
+                        <span>⚠️ Headroom: 15 seats remaining • 📊 Density: 0.18 p/m²</span>
+                        <button class="btn-secondary-xs"><i data-lucide="sliders"></i> Set Occupancy Limit</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Grid: Threshold Settings & Command Execution Status -->
+            <div class="ctrl-bottom-grid margin-top-20">
+
+                <!-- Threshold Settings Card -->
+                <div class="ctrl-card">
+                    <div class="card-header-bar">
+                        <div class="header-title-group">
+                            <i data-lucide="shield-alert" class="blue-text"></i>
+                            <div>
+                                <h3>Threshold Settings</h3>
+                                <p>Hardware trigger limits for automated safety trips</p>
+                            </div>
+                        </div>
+                        <span class="eeprom-badge">🔒 EEPROM Stored</span>
+                    </div>
+
+                    <div class="threshold-inputs-grid">
+                        <div class="thresh-box-v2">
+                            <div class="thresh-top-line">
+                                <small>MAX TEMP TRIP</small>
+                                <i data-lucide="triangle-alert" class="red-text" style="width: 14px; height: 14px;"></i>
+                            </div>
+                            <div class="thresh-input-group">
+                                <input type="text" value="28.0" class="thresh-input">
+                                <span>°C</span>
+                            </div>
+                            <small class="thresh-sub-text">Default calibrated limit: 30.0°C</small>
+                        </div>
+
+                        <div class="thresh-box-v2">
+                            <div class="thresh-top-line">
+                                <small>GAS SENSITIVITY (VOC)</small>
+                                <i data-lucide="wind" class="purple-text" style="width: 14px; height: 14px;"></i>
+                            </div>
+                            <div class="thresh-input-group">
+                                <input type="text" value="450" class="thresh-input">
+                                <span>PPM</span>
+                            </div>
+                            <small class="thresh-sub-text">Safety ceiling: 600 PPM</small>
+                        </div>
+                    </div>
+
+                    <div class="failsafe-note-v2">
+                        <i data-lucide="info" class="blue-text" style="width: 14px; height: 14px;"></i>
+                        <span>Triggers automated damper fail-safe and high-throughput emergency exhaust when exceeded.</span>
+                    </div>
+
+                    <div class="thresh-actions-footer">
+                        <button class="btn-secondary-sm">Reset to Defaults</button>
+                        <button class="btn-primary-sm"><i data-lucide="save"></i> Save Settings</button>
+                    </div>
+                </div>
+
+                <!-- Command Execution Status Card -->
+                <div class="ctrl-card">
+                    <div class="card-header-bar">
+                        <div class="header-title-group">
+                            <i data-lucide="terminal" class="blue-text"></i>
+                            <div>
+                                <h3>Command Execution Status</h3>
+                                <p>MQTT broker actuation audit log & handshake confirmation</p>
+                            </div>
+                        </div>
+                        <span class="broker-live-tag">📡 Broker Live</span>
+                    </div>
+
+                    <div class="command-success-box">
+                        <i data-lucide="check-circle" class="green-text" style="width: 18px; height: 18px;"></i>
+                        <div class="cmd-text">
+                            <strong>Command Executed Successfully</strong>
+                            <p>Fan set to ON • Just now (08:40:12 UTC)</p>
+                        </div>
+                        <span class="target-node-tag">Target: Relay Node 02 (HVAC)</span>
+                    </div>
+
+                    <div class="actuation-stream-box">
+                        <small>RECENT ACTUATION STREAM</small>
+                        <div class="stream-item">
+                            <span>● Occupancy limit updated: Max 20 &rarr; 25</span>
+                            <small>2 mins ago • Accepted by Edge Gateway</small>
+                        </div>
+                        <div class="stream-item">
+                            <span>● Cooling setpoint adjusted to 22.0°C</span>
+                            <small>16 mins ago • Ack: 200 OK</small>
+                        </div>
+                        <div class="stream-item">
+                            <span>● Damper cycle check initiated</span>
+                            <small>1 hour ago • Completed</small>
+                        </div>
+                    </div>
+
+                    <div class="card-footer-action">
+                        <small>📡 Published to: campus/lab1/actuators/control</small>
+                        <span class="qos-tag">QoS Level 1</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

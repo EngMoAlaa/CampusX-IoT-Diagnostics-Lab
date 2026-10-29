@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus X - Settings & Preferences</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!--Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-section">
+                <i data-lucide="radio" class="logo-icon"></i>
+                <div class="logo-text">
+                    <h2>Campus X</h2>
+                    <span>TELEMETRY HUB</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="devices.html" class="nav-item">
+                    <i data-lucide="cpu"></i>
+                    <span>Devices</span>
+                </a>
+                <a href="alerts.html" class="nav-item">
+                    <i data-lucide="bell"></i>
+                    <span>Alerts</span>
+                    <span class="badge">5</span>
+                </a>
+                <a href="control-panel.html" class="nav-item">
+                    <i data-lucide="sliders"></i>
+                    <span>Control Panel</span>
+                </a>
+                <a href="settings.html" class="nav-item active">
+                    <i data-lucide="settings"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="system-status-box">
+                    <small>SYSTEM STATUS</small>
+                    <div class="sys-row"><span>Server</span> <strong class="green-text">● Live</strong></div>
+                    <div class="sys-row"><span>Database</span> <strong class="blue-text">● Active</strong></div>
+                    <div class="sys-row"><span>MQTT Broker</span> <strong class="green-text">● Online</strong></div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ==================== Main Content ==================== -->
+        <main class="main-content">
+            
+            <!-- Top Header (بدون Search Bar) -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button id="mobile-menu-btn" class="mobile-toggle-btn"><i data-lucide="menu"></i></button>
+                    <div class="lab-selector-wrapper">
+                        <i data-lucide="flask-conical"></i>
+                        <span class="lab-current-title">Lab 1 - Main Room</span>
+                        <i data-lucide="chevron-down" style="width: 12px; height: 12px; margin-left: 4px;"></i>
+                    </div>
+                </div>
+
+                <div class="header-right-group">
+                    <button class="icon-btn" id="theme-toggle" title="Toggle Theme">
+                        <i data-lucide="moon"></i>
+                    </button>
+                    <button class="icon-btn"><i data-lucide="bell"></i></button>
+
+                    <div class="user-profile">
+                        <div class="user-info">
+                            <strong>Dr. Lamia</strong>
+                            <small>Lab Administrator</small>
+                        </div>
+                        <div class="avatar"><i data-lucide="user"></i></div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Settings Page Title Banner -->
+            <div class="page-title-banner">
+                <div>
+                    <div class="title-with-badge">
+                        <h1>Settings & Preferences</h1>
+                        <span class="ver-badge">ADMIN CONFIGURATION MODE v3.4.1</span>
+                    </div>
+                    <p class="subtitle-text">
+                        Global laboratory parameters, credential governance, and real-time telemetry pipeline pipelines.
+                    </p>
+                </div>
+                <div class="banner-actions">
+                    <button class="btn-secondary-sm"><i data-lucide="rotate-ccw"></i> Reset to Defaults</button>
+                    <button class="btn-primary-sm"><i data-lucide="save"></i> Save All Changes</button>
+                </div>
+            </div>
+
+            <!-- Settings Grid (2 Columns x 2 Rows) -->
+            <div class="settings-2col-grid">
+
+                <!-- Card 1: User Profile -->
+                <div class="settings-card">
+                    <div class="card-header-bar">
+                        <div class="header-title-group">
+                            <i data-lucide="user" class="blue-text"></i>
+                            <div>
+                                <h3>User Profile</h3>
+                                <p>Personal identity & administrator credentials</p>
+                            </div>
+                        </div>
+                        <span class="tier-badge">ADMIN TIER 1</span>
+                    </div>
+
+                    <div class="card-body-content">
+                        <div class="profile-avatar-row">
+                            <div class="profile-avatar-box">DL</div>
+                            <div class="profile-details">
+                                <h4>Dr. Lamia <small>ID: CX-9042</small></h4>
+                                <p>lamia@campusk.edu</p>
+                                <span>Senior Research Lead - Biochemistry & Telemetry Core</span>
+                            </div>
+                            <button class="btn-secondary-sm btn-change-photo">Change Photo</button>
+                        </div>
+
+                        <div class="form-grid-2">
+                            <div class="form-group">
+                                <label>FULL NAME</label>
+                                <input type="text" value="Dr. Lamia" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label>EMAIL ADDRESS</label>
+                                <input type="email" value="wmi@campusk.edu" class="form-input">
+                            </div>
+                        </div>
+
+                        <div class="form-group margin-top-12">
+                            <label>ASSIGNED DEPARTMENT & LABORATORY</label>
+                            <input type="text" value="Biochemistry & IoT Core (Lab 1 - Main Room)" class="form-input">
+                        </div>
+
+                        <div class="card-footer-action">
+                            <small>Last modified: 10 Oct 2024, 09:21 UTC</small>
+                            <button class="btn-secondary-sm"><i data-lucide="refresh-cw"></i> Update Profile</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: System Connections -->
+                <div class="settings-card">
+                    <div class="card-header-bar">
+                        <div class="header-title-group">
+                            <i data-lucide="network" class="blue-text"></i>
+                            <div>
+                                <h3>System Connections</h3>
+                                <p>Telemetry ingestion pipeline & broker telemetry</p>
+                            </div>
+                        </div>
+                        <span class="status-pill-green">● All Services Operational</span>
+                    </div>
+
+                    <div class="card-body-content">
+                        <div class="connection-row">
+                            <div class="conn-info">
+                                <i data-lucide="radio" class="conn-icon blue-text"></i>
+                                <div>
+                                    <div class="conn-title-line">
+                                        <strong>MQTT Broker</strong>
+                                        <span class="tag-online">Online</span>
+                                    </div>
+                                    <p>Mosquitto v2.0 • Port: 1883 • QoS 1 • Ingesting 1,240 msg/sec</p>
+                                </div>
+                            </div>
+                            <span class="uptime-text">99.20% uptime<br><small>Cluster-C/A</small></span>
+                        </div>
+
+                        <div class="connection-row">
+                            <div class="conn-info">
+                                <i data-lucide="database" class="conn-icon purple-text"></i>
+                                <div>
+                                    <div class="conn-title-line">
+                                        <strong>TimescaleDB Telemetry Cluster</strong>
+                                        <span class="tag-connected">Connected</span>
+                                    </div>
+                                    <p>TimescaleDB Cluster • Replication Synced • 24ms latency</p>
+                                </div>
+                            </div>
+                            <span class="uptime-text">4.2 TB Stored<br><small>Write IOPS: 2,110</small></span>
+                        </div>
+
+                        <div class="connection-row">
+                            <div class="conn-info">
+                                <i data-lucide="cpu" class="conn-icon green-text"></i>
+                                <div>
+                                    <div class="conn-title-line">
+                                        <strong>API Gateway</strong>
+                                        <span class="tag-active">Active</span>
+                                    </div>
+                                    <p>FastAPI Telemetry Mesh • TLS 1.3 Verified • Zero Packet Drop</p>
+                                </div>
+                            </div>
+                            <span class="uptime-text">HTTP/2 enabled<br><small>Mesh Node: node-4</small></span>
+                        </div>
+
+                        <div class="card-footer-action">
+                            <small>Last Pipeline Handshake: 12 seconds ago</small>
+                            <button class="btn-secondary-sm"><i data-lucide="activity"></i> Run Diagnostics</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Notification Preferences -->
+                <div class="settings-card">
+                    <div class="card-header-bar">
+                        <div class="header-title-group">
+                            <i data-lucide="bell" class="blue-text"></i>
+                            <div>
+                                <h3>Notification Preferences</h3>
+                                <p>Configure alert dispatch channels & triggers</p>
+                            </div>
+                        </div>
+                        <div class="freq-dropdown">
+                            <small>Frequency:</small>
+                            <select class="settings-select">
+                                <option>Real-time (0ms)</option>
+                                <option>Batch 5 mins</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="card-body-content">
+                        <div class="toggle-setting-item">
+                            <div class="toggle-text">
+                                <strong>Email Alerts</strong>
+                                <p>Dispatch high-severity sensor alerts to lamia@campusk.edu</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="toggle-setting-item">
+                            <div class="toggle-text">
+                                <strong>SMS Critical Emergency Alerts</strong>
+                                <p>Direct SMS alerts for hardware breakdown, thermal runaway & power loss</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="toggle-setting-item">
+                            <div class="toggle-text">
+                                <strong>Push Telemetry Notifications</strong>
+                                <p>Real-time desktop alerts when sensor node heartbeat latency exceeds 200ms</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="card-footer-action">
+                            <small>Escalation webhook endpoint routed to /alert-api</small>
+                            <span class="foot-tag">Fast-Push Trigger</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Security & Privacy -->
+                <div class="settings-card">
+                    <div class="card-header-bar">
+                        <div class="header-title-group">
+                            <i data-lucide="shield-check" class="blue-text"></i>
+                            <div>
+                                <h3>Security & Privacy</h3>
+                                <p>Authentication security & access controls</p>
+                            </div>
+                        </div>
+                        <span class="sec-badge">Level 3 Protected</span>
+                    </div>
+
+                    <div class="card-body-content">
+                        <div class="form-grid-3">
+                            <div class="form-group">
+                                <label>CURRENT PASSWORD</label>
+                                <input type="password" value="............" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label>NEW PASSWORD</label>
+                                <input type="password" value="............" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label>CONFIRM PASSWORD</label>
+                                <input type="password" value="............" class="form-input">
+                            </div>
+                        </div>
+
+                        <div class="toggle-setting-item margin-top-12">
+                            <div class="toggle-text">
+                                <strong>Two-Factor Authentication (2FA)</strong>
+                                <p>Hardware security key (YubiKey) & TOTP authenticator enabled</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="session-gov-box">
+                            <div class="toggle-text">
+                                <strong>Session Governance</strong>
+                                <p>1 active session on Chrome (macOS Sequoia) • IP 10.24.1.42 (Internal LAN)</p>
+                            </div>
+                            <button class="btn-danger-xs">Revoke Others</button>
+                        </div>
+
+                        <div class="card-footer-action">
+                            <small>Session Token expires in: 5 hours 40 mins</small>
+                            <button class="btn-secondary-sm"><i data-lucide="key"></i> Update Security Credentials</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

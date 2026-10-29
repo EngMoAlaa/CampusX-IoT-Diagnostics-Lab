@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus X - Alerts & Notifications</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!--  Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-section">
+                <i data-lucide="radio" class="logo-icon"></i>
+                <div class="logo-text">
+                    <h2>Campus X</h2>
+                    <span>TELEMETRY HUB</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="devices.html" class="nav-item">
+                    <i data-lucide="cpu"></i>
+                    <span>Devices</span>
+                </a>
+                <a href="alerts.html" class="nav-item active">
+                    <i data-lucide="bell"></i>
+                    <span>Alerts</span>
+                    <span class="badge">5</span>
+                </a>
+                <a href="control-panel.html" class="nav-item">
+                    <i data-lucide="sliders"></i>
+                    <span>Control Panel</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i data-lucide="settings"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="system-status-box">
+                    <small>SYSTEM STATUS</small>
+                    <div class="sys-row"><span>Server</span> <strong class="green-text">● Live</strong></div>
+                    <div class="sys-row"><span>Database</span> <strong class="blue-text">● Active</strong></div>
+                    <div class="sys-row"><span>MQTT Broker</span> <strong class="green-text">● Online</strong></div>
+                </div>
+            </div>
+        </aside>
+
+        <!--  Main Content -->
+        <main class="main-content">
+            
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button id="mobile-menu-btn" class="mobile-toggle-btn"><i data-lucide="menu"></i></button>
+                    <div class="lab-selector-wrapper">
+                        <i data-lucide="flask-conical"></i>
+                        <span class="lab-current-title">Lab 1 - Main Room</span>
+                        <i data-lucide="chevron-down" style="width: 12px; height: 12px; margin-left: 4px;"></i>
+                    </div>
+                </div>
+
+                <div class="header-right-group">
+                    <button class="icon-btn" id="theme-toggle" title="Toggle Theme">
+                        <i data-lucide="moon"></i>
+                    </button>
+                    <button class="icon-btn"><i data-lucide="bell"></i></button>
+
+                    <div class="user-profile">
+                        <div class="user-info">
+                            <strong>Dr. Lamia</strong>
+                            <small>Lab Administrator</small>
+                        </div>
+                        <div class="avatar"><i data-lucide="user"></i></div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Alerts Page Title Banner -->
+            <div class="page-title-banner">
+                <div>
+                    <div class="title-with-badge">
+                        <h1>Alerts & Notifications</h1>
+                        <span class="red-pill-badge">5 ACTIVE ALERTS</span>
+                        <span class="mqtt-sync-tag">📡 MQTT Synced - 24ms</span>
+                    </div>
+                    <p class="subtitle-text">
+                        Real-time telemetry event triggers, threshold anomalies, and active incident response across campus IoT infrastructure.
+                    </p>
+                </div>
+                <div class="gateway-sentry-box">
+                    <small>GATEWAY SENTRY:</small>
+                    <strong>Autonomous Guard Active</strong>
+                </div>
+            </div>
+
+            <!-- Top 4 Metric KPI Cards -->
+            <div class="kpi-grid-4" style="margin-bottom: 20px;">
+                <div class="kpi-card-v2">
+                    <div class="kpi-v2-header">
+                        <span>CRITICAL ALERTS</span>
+                        <i data-lucide="shield-alert" class="kpi-icon red"></i>
+                    </div>
+                    <div class="kpi-v2-body">
+                        <div class="val-number red-text">1</div>
+                    </div>
+                    <div class="kpi-v2-footer-text red-text">Active +1 in last 2h</div>
+                </div>
+
+                <div class="kpi-card-v2">
+                    <div class="kpi-v2-header">
+                        <span>WARNINGS</span>
+                        <i data-lucide="triangle-alert" class="kpi-icon purple"></i>
+                    </div>
+                    <div class="kpi-v2-body">
+                        <div class="val-number">2</div>
+                    </div>
+                    <div class="kpi-v2-footer-text">Detected HVAC & Power</div>
+                </div>
+
+                <div class="kpi-card-v2">
+                    <div class="kpi-v2-header">
+                        <span>SYSTEM INFO</span>
+                        <i data-lucide="info" class="kpi-icon blue"></i>
+                    </div>
+                    <div class="kpi-v2-body">
+                        <div class="val-number">2</div>
+                    </div>
+                    <div class="kpi-v2-footer-text">Events Node connectivity</div>
+                </div>
+
+                <div class="kpi-card-v2">
+                    <div class="kpi-v2-header">
+                        <span>MEAN TIME TO RESOLVE</span>
+                        <i data-lucide="clock" class="kpi-icon blue"></i>
+                    </div>
+                    <div class="kpi-v2-body">
+                        <div class="val-number">14.2 <small style="font-size: 12px; color: var(--text-muted);">min</small></div>
+                    </div>
+                    <div class="kpi-v2-footer-text green-text">↓ 18% vs avg</div>
+                </div>
+            </div>
+
+            <!-- Table Filter Toolbar -->
+            <div class="table-toolbar">
+                <div class="tab-pills">
+                    <button class="tab-pill active">All (5)</button>
+                    <button class="tab-pill">Critical 1</button>
+                    <button class="tab-pill">Warning 2</button>
+                    <button class="tab-pill">Info 2</button>
+                </div>
+
+                <div class="toolbar-right">
+                    <button class="filter-dropdown-btn"><i data-lucide="map-pin"></i> All Lab Locations <i data-lucide="chevron-down"></i></button>
+                    <button class="btn-secondary-sm"><i data-lucide="download"></i> Export Logs</button>
+                    <button class="btn-secondary-sm"><i data-lucide="check-check"></i> Mark all as read</button>
+                </div>
+            </div>
+
+            <!-- Alerts Custom Table -->
+            <div class="table-card-wrapper">
+                <table class="custom-data-table">
+                    <thead>
+                        <tr>
+                            <th>SEVERITY</th>
+                            <th>ALERT NAME</th>
+                            <th>LAB LOCATION</th>
+                            <th>DESCRIPTION</th>
+                            <th>TIME</th>
+                            <th class="text-right">ACTIONS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Alert 1 (Critical) -->
+                        <tr class="critical-row">
+                            <td><span class="severity-pill red">● CRITICAL</span></td>
+                            <td>
+                                <div class="device-cell">
+                                    <i data-lucide="alert-circle" class="dev-icon red-text"></i>
+                                    <div>
+                                        <strong>High Temperature</strong>
+                                        <small>Sensor: TH-SRV-04</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Lab 1<br><small class="text-muted">(Server Room)</small></td>
+                            <td><strong>32.4 °C recorded in Server Rack 4</strong><br><small class="text-muted">Critical threshold (&gt;25.0°C) exceeded by +7.4°C</small></td>
+                            <td>2m ago<br><small class="text-muted">14:32:04 UTC</small></td>
+                            <td class="text-right">
+                                <button class="btn-table-danger">Acknowledge</button>
+                                <a href="#" class="details-link">Details &rarr;</a>
+                            </td>
+                        </tr>
+
+                        <!-- Alert 2 (Warning) -->
+                        <tr>
+                            <td><span class="severity-pill purple">● WARNING</span></td>
+                            <td>
+                                <div class="device-cell">
+                                    <i data-lucide="zap" class="dev-icon purple-text"></i>
+                                    <div>
+                                        <strong>Energy Spike</strong>
+                                        <small>Sub-meter: PM-HVAC-02</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Lab 2<br><small class="text-muted">(HVAC)</small></td>
+                            <td><strong>5.1 kW load surge detected on chiller branch</strong><br><small class="text-muted">Surpassed normal peak limit (5.0 kW nominal ceiling)</small></td>
+                            <td>45m ago<br><small class="text-muted">13:49:12 UTC</small></td>
+                            <td class="text-right">
+                                <button class="btn-table-action">Investigate</button>
+                                <button class="btn-table-action">Acknowledge</button>
+                            </td>
+                        </tr>
+
+                        <!-- Alert 3 (Info) -->
+                        <tr>
+                            <td><span class="severity-pill blue">● INFO</span></td>
+                            <td>
+                                <div class="device-cell">
+                                    <i data-lucide="wifi-off" class="dev-icon blue-text"></i>
+                                    <div>
+                                        <strong>Node Offline</strong>
+                                        <small>Device: Node 06 (LoRa)</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Lab 3<br><small class="text-muted">(Fume Hood B)</small></td>
+                            <td><strong>Node 06 Disconnected Heartbeat dropped</strong><br><small class="text-muted">Missed 3 consecutive ping intervals over LoRaWAN branch</small></td>
+                            <td>3 hours ago<br><small class="text-muted">11:30:00 UTC</small></td>
+                            <td class="text-right">
+                                <button class="btn-table-action">Ping Node</button>
+                                <button class="btn-table-action">Mute</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Pagination & Stats Footer -->
+                <div class="table-footer-pagination">
+                    <span>Showing 1-3 of 5 active alerts • Real-time MQTT stream synced (24ms latency)</span>
+                    <div class="pagination-controls">
+                        <button class="page-btn disabled">&lt; Previous</button>
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">Next &gt;</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom 3 Info Cards -->
+            <div class="bottom-info-3grid" style="margin-top: 20px;">
+                <div class="info-card">
+                    <i data-lucide="radio" class="blue-text"></i>
+                    <div>
+                        <small>BROKER SUBSCRIPTIONS</small>
+                        <strong>campus/labs/# (32 topics)</strong>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <i data-lucide="shield-alert" class="purple-text"></i>
+                    <div>
+                        <small>SUPPRESSED RULES</small>
+                        <strong>2 scheduled silences</strong>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <i data-lucide="database" class="blue-text"></i>
+                    <div>
+                        <small>HISTORICAL LOG RETENTION</small>
+                        <strong>90 Days Active Storage</strong>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

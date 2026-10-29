@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus X - Device Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar-->
+        <aside class="sidebar">
+            <div class="logo-section">
+                <i data-lucide="radio" class="logo-icon"></i>
+                <div class="logo-text">
+                    <h2>Campus X</h2>
+                    <span>TELEMETRY HUB</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="devices.html" class="nav-item active">
+                    <i data-lucide="cpu"></i>
+                    <span>Devices</span>
+                </a>
+                <a href="alerts.html" class="nav-item">
+                    <i data-lucide="bell"></i>
+                    <span>Alerts</span>
+                    <span class="badge">5</span>
+                </a>
+                <a href="control-panel.html" class="nav-item">
+                    <i data-lucide="sliders"></i>
+                    <span>Control Panel</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <i data-lucide="settings"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="system-status-box">
+                    <small>SYSTEM STATUS</small>
+                    <div class="sys-row"><span>Server</span> <strong class="green-text">● Live</strong></div>
+                    <div class="sys-row"><span>Database</span> <strong class="blue-text">● Active</strong></div>
+                    <div class="sys-row"><span>MQTT Broker</span> <strong class="green-text">● Online</strong></div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content  -->
+        <main class="main-content">
+            
+            <!-- Top Header-->
+            <header class="top-header">
+                <div class="header-left">
+                    <button id="mobile-menu-btn" class="mobile-toggle-btn"><i data-lucide="menu"></i></button>
+                    <div class="lab-selector-wrapper">
+                        <i data-lucide="flask-conical"></i>
+                        <span class="lab-current-title">Lab 1 - Main Room</span>
+                        <i data-lucide="chevron-down" style="width: 12px; height: 12px; margin-left: 4px;"></i>
+                    </div>
+                </div>
+
+                <div class="header-right-group">
+                    <button class="icon-btn" id="theme-toggle" title="Toggle Theme">
+                        <i data-lucide="moon"></i>
+                    </button>
+                    <button class="icon-btn"><i data-lucide="bell"></i></button>
+
+                    <div class="user-profile">
+                        <div class="user-info">
+                            <strong>Dr. Lamia</strong>
+                            <small>Lab Administrator</small>
+                        </div>
+                        <div class="avatar"><i data-lucide="user"></i></div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Device Management Page Title & Actions -->
+            <div class="page-title-banner">
+                <div>
+                    <div class="title-with-badge">
+                        <h1>Device Management</h1>
+                        <span class="ver-badge">v3.4.1</span>
+                    </div>
+                    <p class="subtitle-text">
+                        Real-time physical computing nodes, sensor health telemetry, and firmware provisioning. 
+                        <strong>NODES: 24 Registered</strong> • 20 Online • 4 Offline • 64 MQTT Synced - QoS 1
+                    </p>
+                </div>
+                <div class="banner-actions">
+                    <button class="btn-secondary-sm"><i data-lucide="download"></i> Export Inventory</button>
+                    <button class="btn-primary-sm"><i data-lucide="plus"></i> Add Device</button>
+                </div>
+            </div>
+
+            <!-- Top 4 Metric KPI Cards -->
+            <div class="kpi-grid-4" style="margin-bottom: 20px;">
+                <div class="kpi-card-v2">
+                    <div class="kpi-v2-header">
+                        <span>ONLINE FLEET</span>
+                        <i data-lucide="wifi" class="kpi-icon blue"></i>
+                    </div>
+                    <div class="kpi-v2-body">
+                        <div class="val-number">20 <small style="font-size: 14px; color: var(--text-muted);">/ 24</small></div>
+                    </div>
+                    <div class="kpi-v2-footer-text">● Active telemetry stream</div>
+                    <div class="kpi-pill-right blue-text">83.3%</div>
+                </div>
+
+                <div class="kpi-card-v2">
+                    <div class="kpi-v2-header">
+                        <span>OFFLINE / DISCONNECTED</span>
+                        <i data-lucide="triangle-alert" class="kpi-icon red"></i>
+                    </div>
+                    <div class="kpi-v2-body">
+                        <div class="val-number red-text">4 <small style="font-size: 14px; color: var(--text-muted);">Nodes</small></div>
+                    </div>
+                    <div class="kpi-v2-footer-text">● Needs attention in Lab 3</div>
+                    <div class="kpi-pill-right red-text">Priority 1</div>
+                </div>
+
+                <div class="kpi-card-v2">
+                    <div class="kpi-v2-header">
+                        <span>DATA PACKETS TODAY</span>
+                        <i data-lucide="zap" class="kpi-icon blue"></i>
+                    </div>
+                    <div class="kpi-v2-body">
+                        <div class="val-number">14,203 <small style="font-size: 12px; color: var(--text-muted);">pkts</small></div>
+                    </div>
+                    <div class="kpi-v2-footer-text">▲ +1,240 msg/sec ingress rate</div>
+                </div>
+
+                <div class="kpi-card-v2">
+                    <div class="kpi-v2-header">
+                        <span>MESH NETWORK HEALTH</span>
+                        <i data-lucide="activity" class="kpi-icon blue"></i>
+                    </div>
+                    <div class="kpi-v2-body">
+                        <div class="val-number">98% <small style="font-size: 12px; color: var(--text-muted);">Stability</small></div>
+                    </div>
+                    <div class="kpi-v2-footer-text">Packet loss: &lt;0.02%</div>
+                    <div class="kpi-pill-right green-text">99.99% SLA</div>
+                </div>
+            </div>
+
+            <!-- Table Filter Toolbar -->
+            <div class="table-toolbar">
+                <div class="search-box-wrapper" style="flex: 1; max-width: 320px;">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" placeholder="Filter by node name, ID, or sensor..." class="search-input" style="width: 100%;">
+                </div>
+
+                <div class="toolbar-right">
+                    <button class="filter-dropdown-btn"><i data-lucide="filter"></i> All Labs <i data-lucide="chevron-down"></i></button>
+                    <div class="tab-pills">
+                        <button class="tab-pill active">All (24)</button>
+                        <button class="tab-pill">Online (20)</button>
+                        <button class="tab-pill">Offline (4)</button>
+                    </div>
+                    <button class="icon-btn-sm"><i data-lucide="refresh-cw"></i></button>
+                </div>
+            </div>
+
+            <!-- Devices Custom Table -->
+            <div class="table-card-wrapper">
+                <table class="custom-data-table">
+                    <thead>
+                        <tr>
+                            <th>DEVICE NAME</th>
+                            <th>TYPE</th>
+                            <th>LAB LOCATION</th>
+                            <th>STATUS</th>
+                            <th>LAST READING</th>
+                            <th>SIGNAL / BATTERY</th>
+                            <th>LAST SEEN</th>
+                            <th class="text-right">ACTIONS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Device 1 -->
+                        <tr>
+                            <td>
+                                <div class="device-cell">
+                                    <i data-lucide="radio" class="dev-icon blue-text"></i>
+                                    <div>
+                                        <strong>Node 01 - Server Core</strong>
+                                        <small>MAC: EUE-78-B3-05 • MCU: ESP32-S3</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="type-badge">Temp Sensor</span></td>
+                            <td>Lab 1<br><small class="text-muted">Room Main</small></td>
+                            <td><span class="status-indicator-pill green">● Online</span></td>
+                            <td><strong>24.0 °C</strong><br><small class="text-muted">Target: 22.0 - 25.0°C</small></td>
+                            <td><span class="blue-text">📶 92%</span> • <span class="green-text">🔋 88%</span></td>
+                            <td>2 mins ago</td>
+                            <td class="text-right"><button class="btn-table-action"><i data-lucide="eye"></i> View</button> <i data-lucide="more-vertical" class="more-icon"></i></td>
+                        </tr>
+
+                        <!-- Device 2 -->
+                        <tr>
+                            <td>
+                                <div class="device-cell">
+                                    <i data-lucide="sliders" class="dev-icon purple-text"></i>
+                                    <div>
+                                        <strong>Node 02 - HVAC Controller</strong>
+                                        <small>MCU: STM32-WB • Relay Bus 1</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="type-badge">Controller</span></td>
+                            <td>Lab 2<br><small class="text-muted">Electronics Wing</small></td>
+                            <td><span class="status-indicator-pill green">● Online</span></td>
+                            <td><strong>22.5 °C</strong><br><small class="text-muted">Target: 21.0 - 24.0°C</small></td>
+                            <td><span class="blue-text">📶 85%</span> • <span class="green-text">🔋 88%</span></td>
+                            <td>1 min ago</td>
+                            <td class="text-right"><button class="btn-table-action"><i data-lucide="eye"></i> View</button> <i data-lucide="more-vertical" class="more-icon"></i></td>
+                        </tr>
+
+                        <!-- Device 3 (Offline) -->
+                        <tr class="offline-row">
+                            <td>
+                                <div class="device-cell">
+                                    <i data-lucide="wind" class="dev-icon red-text"></i>
+                                    <div>
+                                        <strong class="red-text">Node 03 - Fume Hood B ●</strong>
+                                        <small>MCU: ESP32-C3 • LoRaWAN 915</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="type-badge">Airflow Sensor</span></td>
+                            <td>Lab 3<br><small class="text-muted">Chemistry Suite</small></td>
+                            <td><span class="status-indicator-pill red">● Offline</span></td>
+                            <td><span class="red-text">Heartbeat Lost</span></td>
+                            <td><span class="red-text">📶 0%</span> • <span class="red-text">🔋 Crit</span></td>
+                            <td>3 hours ago</td>
+                            <td class="text-right"><button class="btn-table-danger"><i data-lucide="wrench"></i> Diagnostics</button> <i data-lucide="more-vertical" class="more-icon"></i></td>
+                        </tr>
+
+                        <!-- Device 4 -->
+                        <tr>
+                            <td>
+                                <div class="device-cell">
+                                    <i data-lucide="droplet" class="dev-icon blue-text"></i>
+                                    <div>
+                                        <strong>Node 04 - Humidity Sensor</strong>
+                                        <small>MCU: Nordic nRF52 • BLE Mesh</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="type-badge">Humidity Sensor</span></td>
+                            <td>Lab 1<br><small class="text-muted">Room Main</small></td>
+                            <td><span class="status-indicator-pill green">● Online</span></td>
+                            <td><strong>48% RH</strong><br><small class="text-muted">Optimal: 40 - 60%</small></td>
+                            <td><span class="blue-text">📶 92%</span> • <span class="green-text">🔋 94%</span></td>
+                            <td>5 mins ago</td>
+                            <td class="text-right"><button class="btn-table-action"><i data-lucide="eye"></i> View</button> <i data-lucide="more-vertical" class="more-icon"></i></td>
+                        </tr>
+
+                        <!-- Device 5 -->
+                        <tr>
+                            <td>
+                                <div class="device-cell">
+                                    <i data-lucide="zap" class="dev-icon yellow-text"></i>
+                                    <div>
+                                        <strong>Node 05 - Power Bus B</strong>
+                                        <small>PZEM-004T Meter • RS485</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><span class="type-badge">Power Monitor</span></td>
+                            <td>Lab 2<br><small class="text-muted">Electronics Wing</small></td>
+                            <td><span class="status-indicator-pill green">● Online</span></td>
+                            <td><strong>3.2 kW</strong><br><small class="text-muted">Peak: 5.5 kW</small></td>
+                            <td><span class="blue-text">📶 100%</span> • <span class="green-text">⚡ Mains</span></td>
+                            <td>1 min ago</td>
+                            <td class="text-right"><button class="btn-table-action"><i data-lucide="eye"></i> View</button> <i data-lucide="more-vertical" class="more-icon"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Pagination & Stats Footer -->
+                <div class="table-footer-pagination">
+                    <span>Showing 1 to 5 of 24 devices • Ingesting 1,240 msg/sec via Mosquitto Broker</span>
+                    <div class="pagination-controls">
+                        <button class="page-btn disabled">&lt; Previous</button>
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn">Next &gt;</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom 3 Info Cards -->
+            <div class="bottom-info-3grid" style="margin-top: 20px;">
+                <div class="info-card">
+                    <i data-lucide="network" class="blue-text"></i>
+                    <div>
+                        <small>SUBNET CLUSTER</small>
+                        <strong>10.24.1.0/24 Core Net</strong>
+                        <p>Gateway latency 4ms • 0 jitter</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <i data-lucide="refresh-cw" class="blue-text"></i>
+                    <div>
+                        <small>FIRMWARE DISTRIBUTION</small>
+                        <strong>22 Devices on v3.4.1</strong>
+                        <p>2 pending OTA update</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <i data-lucide="shield-check" class="green-text"></i>
+                    <div>
+                        <small>SECURITY INTEGRITY</small>
+                        <strong>mTLS Handshake Active</strong>
+                        <p>Zero certificate alerts</p>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

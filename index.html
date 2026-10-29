@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus X - Telemetry Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!--  Sidebar  -->
+        <aside class="sidebar">
+            <div class="logo-section">
+                <i data-lucide="radio" class="logo-icon"></i>
+                <div class="logo-text">
+                    <h2>Campus X</h2>
+                    <span>TELEMETRY HUB</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item active">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="devices.html" class="nav-item">
+                    <i data-lucide="cpu"></i>
+                    <span>Devices</span>
+                </a>
+                <a href="alerts.html" class="nav-item">
+                    <i data-lucide="bell"></i>
+                    <span>Alerts</span>
+                    <span class="badge">5</span>
+                </a>
+                <a href="control-panel.html" class="nav-item">
+                    <i data-lucide="sliders"></i>
+                    <span>Control Panel</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <i data-lucide="settings"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="system-status-box">
+                    <small>SYSTEM STATUS</small>
+                    <div class="sys-row"><span>Server</span> <strong class="green-text">● Live</strong></div>
+                    <div class="sys-row"><span>Database</span> <strong class="blue-text">● Active</strong></div>
+                    <div class="sys-row"><span>MQTT Broker</span> <strong class="green-text">● Online</strong></div>
+                </div>
+            </div>
+        </aside>
+
+        <!--  Main Content  -->
+        <main class="main-content">
+            
+            <!-- Top Header (بدون Search Bar) -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button id="mobile-menu-btn" class="mobile-toggle-btn"><i data-lucide="menu"></i></button>
+                    <div class="lab-selector-wrapper">
+                        <i data-lucide="flask-conical"></i>
+                        <select id="lab-select-dropdown" class="lab-dropdown-select">
+                            <option value="lab1" selected>Lab 1 - Main Room</option>
+                            <option value="lab2">Lab 2 - Electronics Wing</option>
+                            <option value="lab3">Lab 3 - Chemistry Suite</option>
+                            <option value="lab4">Lab 4 - Cleanroom</option>
+                        </select>
+                        <i data-lucide="chevron-down" style="width: 12px; height: 12px; margin-left: 4px;"></i>
+                    </div>
+                </div>
+
+                <div class="header-right-group">
+                    <button class="icon-btn" id="theme-toggle" title="Toggle Theme">
+                        <i data-lucide="moon"></i>
+                    </button>
+                    <button class="icon-btn"><i data-lucide="bell"></i></button>
+
+                    <div class="user-profile">
+                        <div class="user-info">
+                            <strong>Dr. Lamia</strong>
+                            <small>Lab Administrator</small>
+                        </div>
+                        <div class="avatar"><i data-lucide="user"></i></div>
+                    </div>
+                </div>
+            </header>
+
+            <!--  Top 4 Metric KPI Cards (4 Labs Updated)  -->
+            <div class="kpi-grid-4">
+                <div class="kpi-card-v2">
+                    <div class="kpi-v2-header">
+                        <span>TOTAL DEVICES</span>
+                        <i data-lucide="cpu" class="kpi-icon blue"></i>
+                    </div>
+                    <div class="kpi-v2-body">
+                        <div class="val-number">24</div>
+                    </div>
+                    <div class="kpi-v2-footer-text">
+                        Total Registered Nodes<br>
+                        <span>Edge Firmware v3.4.1</span>
+                    </div>
+                    <div class="kpi-pill-right blue-text">● 22 Online / 2 Standby</div>
+                </div>
+
+                <div class="kpi-card-v2">
+                    <div class="kpi-v2-header">
+                        <span>TOTAL LABS</span>
+                        <i data-lucide="flask-conical" class="kpi-icon green"></i>
+                    </div>
+                    <div class="kpi-v2-body">
+                        <div class="val-number">4</div>
+                    </div>
+                    <div class="kpi-v2-footer-text">
+                        Active Connected Units<br>
+                        <span>BSL-2 • Cleanroom • Physics • Chem</span>
+                    </div>
+                    <div class="kpi-pill-right green-text">COVERAGE<br>100% Floor Area</div>
+                </div>
+
+                <div class="kpi-card-v2">
+                    <div class="kpi-v2-header">
+                        <span>ACTIVE ALERTS</span>
+                        <i data-lucide="triangle-alert" class="kpi-icon red"></i>
+                    </div>
+                    <div class="kpi-v2-body">
+                        <div class="val-number red-text">5</div>
+                    </div>
+                    <div class="kpi-v2-footer-text">
+                        Pending Lab Alerts<br>
+                        <strong class="red-text">Action Required (Lab 1)</strong>
+                    </div>
+                    <div class="kpi-pill-right red-text text-right">
+                        1 Critical<br>2 Warning • 2 Info
+                    </div>
+                </div>
+
+                <div class="kpi-card-v2">
+                    <div class="kpi-v2-header">
+                        <span>AVG TEMPERATURE</span>
+                        <i data-lucide="thermometer" class="kpi-icon purple"></i>
+                    </div>
+                    <div class="kpi-v2-body">
+                        <div class="val-number">24.6°c</div>
+                    </div>
+                    <div class="kpi-v2-footer-text">
+                        Composite Node Health<br>
+                        <span>Packet Ingestion: 99.98%</span>
+                    </div>
+                    <div class="kpi-pill-right blue-text text-right">
+                        Baseline Stability<br>98% Nominal
+                    </div>
+                </div>
+            </div>
+
+            <!--  Middle Section  -->
+            <div class="dashboard-split-layout">
+                
+                <!-- Left Main Panel -->
+                <div class="main-overview-panel">
+                    <div class="lab-overview-banner">
+                        <div class="banner-title-group">
+                            <i data-lucide="activity" class="banner-icon"></i>
+                            <div>
+                                <h2>Lab 1 - Main Room Overview <span class="primary-zone-tag">Primary Zone</span></h2>
+                                <p class="sub-meta">● Live Telemetry Link • Synchronized: 08:47:49 AM UTC • Sub-System Architecture v2.2</p>
+                            </div>
+                        </div>
+                        <span class="normal-band-badge">● Normal Operational Band</span>
+                    </div>
+
+                    <div class="lab-metrics-3grid">
+                        <div class="sub-metric-card">
+                            <div class="sm-top"><span>AMBIENT THERMAL</span> <i data-lucide="thermometer"></i></div>
+                            <div class="sm-value">24.0°C</div>
+                            <span class="sm-sub">Target: 22.0 - 25.0°C</span>
+                            <div class="sm-footer"><small>Probe: DS18B20-A1</small> <span class="blue-text">▲ 0.2°C / h</span></div>
+                        </div>
+
+                        <div class="sub-metric-card">
+                            <div class="sm-top"><span>HUMIDITY INDEX</span> <i data-lucide="droplet"></i></div>
+                            <div class="sm-value">48% <small>RH</small></div>
+                            <span class="sm-sub">Range: 40 - 60%</span>
+                            <div class="sm-footer"><small>Sensor: DHT22-B</small> <span>Stable (±1%)</span></div>
+                        </div>
+
+                        <div class="sub-metric-card">
+                            <div class="sm-top"><span>DYNAMIC LOAD</span> <i data-lucide="zap"></i></div>
+                            <div class="sm-value">3.2 <small>kW</small></div>
+                            <span class="sm-sub">Peak: 5.5 kW</span>
+                            <div class="sm-footer"><small>Sub-Meter: Zone A</small> <span>Normal Peak Reserve</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Temperature Chart Box -->
+                    <div class="chart-box-v2">
+                        <div class="chart-header-v2">
+                            <div>
+                                <h3>Temperature Trend (Last 24 Hours)</h3>
+                                <p>Continuous telemetry stream from calibrated thermal nodes</p>
+                            </div>
+                            <div class="min-max-avg-badges">
+                                <span>Min: 21.8°C</span>
+                                <span>Avg: 23.4°C</span>
+                                <span>Max: 25.1°C</span>
+                            </div>
+                        </div>
+                        <div class="chart-canvas-container">
+                            <canvas id="dashboardTrendChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Sidebar Panel -->
+                <div class="right-widgets-panel">
+                    
+                    <!-- Recent Alerts Card -->
+                    <div class="card widget-box">
+                        <div class="widget-header">
+                            <div class="title-with-icon">
+                                <i data-lucide="bell" class="red-text"></i>
+                                <h3>Recent Alerts</h3>
+                            </div>
+                            <a href="alerts.html" class="active-feed-link">Active Feed</a>
+                        </div>
+
+                        <div class="recent-alerts-list">
+                            <div class="recent-alert-item red-border">
+                                <i data-lucide="alert-circle" class="alert-icon red-text"></i>
+                                <div class="alert-content">
+                                    <div class="alert-top-line">
+                                        <strong>High Temp in Lab 1</strong>
+                                        <span class="time-str">2 mins ago</span>
+                                    </div>
+                                    <p>Reached 32.0°C (Safety Limit: 28.0°C). Primary HVAC chiller response triggered.</p>
+                                </div>
+                            </div>
+
+                            <div class="recent-alert-item purple-border">
+                                <i data-lucide="zap" class="alert-icon purple-text"></i>
+                                <div class="alert-content">
+                                    <div class="alert-top-line">
+                                        <strong>Energy Surge in Lab 2</strong>
+                                        <span class="time-str">45 mins ago</span>
+                                    </div>
+                                    <p>Instantaneous draw peaked at 5.1 kW during laser calibration cycle.</p>
+                                </div>
+                            </div>
+
+                            <div class="recent-alert-item blue-border">
+                                <i data-lucide="wifi-off" class="alert-icon blue-text"></i>
+                                <div class="alert-content">
+                                    <div class="alert-top-line">
+                                        <strong>Node Offline in Lab 3</strong>
+                                        <span class="time-str">3 hours ago</span>
+                                    </div>
+                                    <p>Fume Hood B heartbeat lost. Automatic fail-safe damper retention active.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="widget-footer-line">
+                            <span>Escalation protocol Level 2</span>
+                            <a href="alerts.html" class="view-all-btn">View All in Alerts Tab ></a>
+                        </div>
+                    </div>
+
+                    <!-- Node Status Card -->
+                    <div class="card widget-box">
+                        <div class="widget-header">
+                            <div class="title-with-icon">
+                                <i data-lucide="cpu" class="blue-text"></i>
+                                <h3>Node Status</h3>
+                            </div>
+                            <span class="cluster-tag">Cluster Alpha</span>
+                        </div>
+
+                        <div class="nodes-list">
+                            <div class="node-row-item">
+                                <div class="node-info">
+                                    <strong>Node 01 - Server Room Core</strong>
+                                    <small>IP: 10.24.1.101 • MCU ESP32-S3</small>
+                                </div>
+                                <div class="node-status-right green-text">
+                                    <span>Synchronized</span>
+                                    <small>12ms</small>
+                                </div>
+                            </div>
+
+                            <div class="node-row-item">
+                                <div class="node-info">
+                                    <strong>Node 02 - HVAC Duct Controller</strong>
+                                    <small>IP: 10.24.1.102 • MCU STM32-WB</small>
+                                </div>
+                                <div class="node-status-right green-text">
+                                    <span>Synchronized</span>
+                                    <small>18ms</small>
+                                </div>
+                            </div>
+
+                            <div class="node-row-item">
+                                <div class="node-info">
+                                    <strong>Node 03 - Chemical Fume Sensor</strong>
+                                    <small>IP: 10.24.1.103 • MCU ESP32-C3</small>
+                                </div>
+                                <div class="node-status-right green-text">
+                                    <span>Synchronized</span>
+                                    <small>24ms</small>
+                                </div>
+                            </div>
+
+                            <div class="node-row-item">
+                                <div class="node-info">
+                                    <strong>Node 04 - Cleanroom Airflow Node</strong>
+                                    <small>IP: 10.24.1.104 • MCU Nordic nRF</small>
+                                </div>
+                                <div class="node-status-right blue-text">
+                                    <span>Polling</span>
+                                    <small>42ms</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="node-footer-info">
+                            <span><i data-lucide="radio" style="width:12px;height:12px;"></i> Streaming Ingestion:</span>
+                            <strong>1,240 msg/sec - MQTT QoS 1</strong>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Script file -->
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
