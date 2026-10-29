@@ -4,30 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
         lucide.createIcons();
     }
 
-    // 2. تفعيل الوضع الليلي والنهاري وحفظه
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    const savedTheme = localStorage.getItem('theme');
-
-    if (savedTheme === 'dark') {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        if (themeToggleBtn) themeToggleBtn.innerHTML = '<i data-lucide="sun"></i>';
-    }
-
-    if (themeToggleBtn) {
-        themeToggleBtn.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            if (currentTheme === 'dark') {
-                document.documentElement.removeAttribute('data-theme');
-                localStorage.setItem('theme', 'light');
-                themeToggleBtn.innerHTML = '<i data-lucide="moon"></i>';
-            } else {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-                themeToggleBtn.innerHTML = '<i data-lucide="sun"></i>';
-            }
-            if (typeof lucide !== 'undefined') lucide.createIcons();
-        });
-    }
 
     // 3. رسم شارت درجات الحرارة (Chart.js)
     const chartCtx = document.getElementById('dashboardTrendChart');
@@ -72,31 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
         lucide.createIcons();
     }
 
-    // 2. تفعيل الوضع الليلي والنهاري وحفظه
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    const savedTheme = localStorage.getItem('theme');
-
-    if (savedTheme === 'dark') {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        if (themeToggleBtn) themeToggleBtn.innerHTML = '<i data-lucide="sun"></i>';
-    }
-
-    if (themeToggleBtn) {
-        themeToggleBtn.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            if (currentTheme === 'dark') {
-                document.documentElement.removeAttribute('data-theme');
-                localStorage.setItem('theme', 'light');
-                themeToggleBtn.innerHTML = '<i data-lucide="moon"></i>';
-            } else {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-                themeToggleBtn.innerHTML = '<i data-lucide="sun"></i>';
-            }
-            if (typeof lucide !== 'undefined') lucide.createIcons();
-        });
-    }
-
     // 3. التفاعل مع أزرار الفلترة في صفحة الأجهزة
     const tabPills = document.querySelectorAll('.tab-pill');
     tabPills.forEach(pill => {
@@ -112,60 +63,10 @@ document.addEventListener('DOMContentLoaded', () => {
         lucide.createIcons();
     }
 
-    // 2. تفعيل الوضع الليلي والنهاري وحفظه
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    const savedTheme = localStorage.getItem('theme');
-
-    if (savedTheme === 'dark') {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        if (themeToggleBtn) themeToggleBtn.innerHTML = '<i data-lucide="sun"></i>';
-    }
-
-    if (themeToggleBtn) {
-        themeToggleBtn.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            if (currentTheme === 'dark') {
-                document.documentElement.removeAttribute('data-theme');
-                localStorage.setItem('theme', 'light');
-                themeToggleBtn.innerHTML = '<i data-lucide="moon"></i>';
-            } else {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-                themeToggleBtn.innerHTML = '<i data-lucide="sun"></i>';
-            }
-            if (typeof lucide !== 'undefined') lucide.createIcons();
-        });
-    }
-});
 document.addEventListener('DOMContentLoaded', () => {
     // 1. تفعيل أيقونات Lucide
     if (typeof lucide !== 'undefined') {
         lucide.createIcons();
-    }
-
-    // 2. تفعيل الوضع الليلي والنهاري وحفظه
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    const savedTheme = localStorage.getItem('theme');
-
-    if (savedTheme === 'dark') {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        if (themeToggleBtn) themeToggleBtn.innerHTML = '<i data-lucide="sun"></i>';
-    }
-
-    if (themeToggleBtn) {
-        themeToggleBtn.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            if (currentTheme === 'dark') {
-                document.documentElement.removeAttribute('data-theme');
-                localStorage.setItem('theme', 'light');
-                themeToggleBtn.innerHTML = '<i data-lucide="moon"></i>';
-            } else {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-                themeToggleBtn.innerHTML = '<i data-lucide="sun"></i>';
-            }
-            if (typeof lucide !== 'undefined') lucide.createIcons();
-        });
     }
 
     // 3. التفاعل مع زر تشغيل/إيقاف المروحة
@@ -192,10 +93,9 @@ if (labSelect && labTitleBanner) {
         
         // تحديث العنوان في البانر الرئيسي
         labTitleBanner.innerHTML = `${selectedLabText} Overview <span class="primary-zone-tag">Primary Zone</span>`;
-        
-        // إعادة تفعيل الأيقونات إذا لزم الأمر
         if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
-        }
-    });
-}
+                lucide.createIcons();
+            }
+        });
+    }
+   }); 
