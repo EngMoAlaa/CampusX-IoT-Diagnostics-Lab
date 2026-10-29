@@ -1,15 +1,5 @@
 /* ==================== المتغيرات الأساسية (Light & Dark Mode) ==================== */
 :root {
-    --bg-main: #f8fafc;
-    --bg-card: #ffffff;
-    --bg-sidebar: #ffffff;
-    --text-main: #0f172a;
-    --text-muted: #64748b;
-    --border-color: #e2e8f0;
-    --accent-blue: #2563eb;
-}
-
-[data-theme="dark"] {
     --bg-main: #0b0f19;
     --bg-card: #161b22;
     --bg-sidebar: #161b22;
@@ -24,7 +14,6 @@
     margin: 0;
     padding: 0;
     font-family: 'Inter', sans-serif;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 body {
