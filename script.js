@@ -99,3 +99,13 @@ if (labSelect && labTitleBanner) {
         });
     }
    }); 
+   // التفاعل عند الضغط على زر تسجيل الدخول
+const loginForm = document.getElementById('login-form');
+if (loginForm) {
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault(); // منع إعادة تحميل الصفحة
+        
+        // الانتقال لصفحة index.html الرئيسية
+        window.location.href = 'index.html';
+    });
+}
